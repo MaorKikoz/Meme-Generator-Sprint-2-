@@ -2,11 +2,11 @@
 
 var gImgs = [{id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat']}]
 var gMeme = {
- selectedImgId: 5,
+ selectedImgId: 16,
  selectedLineIdx: 0,
  lines: [
  {
- txt: 'I sometimes eat Falafel',
+ txt: 'In just a few hours, you will be sitting around a campire with Andy, eating delicious hot schmoes!',
  size: 20,
  color: 'red'
  }
