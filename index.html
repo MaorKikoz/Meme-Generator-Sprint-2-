@@ -9,24 +9,25 @@
 <body onload="onInit()">
     <Header>Meme Generator</Header>
     <div class="canvas-container">
-        <canvas width="400" height="400">
+        <canvas width="200" height="400">
         </canvas>
     </div>
  
 
- <sect class="editor on">
+ <sect class="editor">
      <input class="text text1" type="text" placeholder="Enter top text here.">
      <input class="text text2" type="text" placeholder="Enter bottom text here.">
  </sect>
 
- <sect class="gallery off">
-  <img src="meme-imgs\meme-imgs (square)\1.jpg" alt="">
-  <img src="meme-imgs\meme-imgs (square)\2.jpg" alt="">
+ <sect class="gallery modal hidden">
+  <!-- <img src="meme-imgs\meme-imgs (square)\1.jpg" alt="">
+  <img src="meme-imgs\meme-imgs (square)\2.jpg" alt=""> -->
  </sect>
 
 
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
+    <script src="js/galleryController.js"></script>
 </body>
 </html>
 

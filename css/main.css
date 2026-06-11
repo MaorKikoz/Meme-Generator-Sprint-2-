@@ -1,0 +1,15 @@
+.canvas-container {
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
+/* .hidden {
+    
+} */
+
+

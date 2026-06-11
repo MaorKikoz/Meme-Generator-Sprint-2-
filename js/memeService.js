@@ -15,19 +15,28 @@ var gImgs = [{ id: 1, url: 'meme-imgs/meme-imgs (square)/1.jpg' },
 { id: 13, url: 'meme-imgs/meme-imgs (square)/13.jpg' },
 { id: 14, url: 'meme-imgs/meme-imgs (square)/14.jpg' },
 { id: 15, url: 'meme-imgs/meme-imgs (square)/15.jpg' },
-{ id: 16, url: 'meme-imgs/meme-imgs (square)/16.jpg' },
+{ id: 16, url: 'meme-imgs/meme-imgs (square)/16.jpg' }
 ]
+
+function getImgs() {
+    return gImgs
+}
+
 var gMeme = {
-    selectedImgId: 16,
+    selectedImgId: 15,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'In just a few hours, you will be sitting around a campire with Andy, eating delicious hot schmoes!',
+            txt: 'Eating delicious hot schmoes!',
             size: 20,
-            color: 'red'
+            color: 'white'
         }
     ]
 }
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 //keywords: ['funny', 'cat']
+
+function setLineTxt(elTxt) {
+   
+}
