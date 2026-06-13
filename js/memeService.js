@@ -40,3 +40,7 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 function setLineTxt(elTxt) {
    
 }
+
+function getPicById(picId) {
+    return gImgs.find(pic => picId === pic.id)
+}
