@@ -13,12 +13,10 @@ function onInit() {
 }
 
 function renderMeme() {
-    // const imgId = elImg
-    //renderImg(imgId)
     const elImg = new Image()
-    elImg.src = gImgs[15].url
+    const meme = getMeme()
+    elImg.src = gImgs[meme.selectedImgId].url
     elImg.onload = () => renderImg(elImg)
-
 }
 
 function resizeCanvas() {
@@ -31,6 +29,7 @@ function onSelectPic(picId) {
     const elImg = new Image()
     const pic = getPicById(picId)
     console.log(pic)
+    gMeme.selectedImgId = picId
     elImg.src = pic.url
     elImg.onload = () => renderImg(elImg)
 }

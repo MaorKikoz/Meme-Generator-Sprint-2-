@@ -15,8 +15,10 @@
  
 
  <sect class="editor">
-     <input class="text text1" type="text" placeholder="Enter top text here.">
-     <input class="text text2" type="text" placeholder="Enter bottom text here.">
+     <input class="canvastext" type="text" placeholder="Enter text here." onInput=" setLineTxt(this)">
+     <input class="color-picker" type="color" value="#000000" oninput="onSetColor(this.value)" />
+     <button onclick="increaseTextSize()">Increase text size</button>
+     <button onclick="decreaseTextSize()">Decrease text size</button>
  </sect>
 
 <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>

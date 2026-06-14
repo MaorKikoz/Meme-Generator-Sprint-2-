@@ -9,7 +9,7 @@ function renderGallery(gallery) {
 		//const txt = getTxt(txtLength)
                 //console.log(imgs[i])
 	            galleryHtml += `
-                <img src="${imgs[i].url} "onclick="onSelectPic(${imgs[i].id})">`
+                <img class="img img${i}" src="${imgs[i].url} "onclick="onSelectPic(${imgs[i].id})">`
 	}
 
 	elGallery.innerHTML = galleryHtml

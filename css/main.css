@@ -1,11 +1,16 @@
 .canvas-container {
-    max-width: 350px;
+    max-width: 400px;
     margin: 20px auto;
 }
 
 canvas {
     display: block;
     width: 100%;
+}
+
+.img {
+    max-width: 200px;
+    margin: auto;
 }
 
 /* .hidden {
