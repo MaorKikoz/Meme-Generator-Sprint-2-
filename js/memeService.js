@@ -25,6 +25,7 @@ function getImgs() {
 var gMeme = {
     selectedImgId: 15,
     selectedLineIdx: 0,
+    selectedLine: 0,
     lines: [
         {
             txt: 'Eating delicious hot schmoes!',
@@ -48,7 +49,7 @@ function getMeme() {
 }
 
 function setLineTxt(elTxt) {
-    gMeme.lines[0].txt = elTxt.value
+    gMeme.lines[gMeme.selectedLine].txt = elTxt.value
     console.log(gMeme.selectedImgId);
     renderMeme()
 }
@@ -75,5 +76,26 @@ function decreaseTextSize() {
     for (var i = 0; i < gMeme.lines.length; i++) {
         gMeme.lines[i].size -= 2
     }
+    renderMeme()
+}
+
+function addLine() {
+    gMeme.lines.push( {
+        txt: 'New line',
+            size: 25,
+            color: 'white',
+            pos: { x: 200, y: 200 }
+    }
+  ) 
+  console.log(gMeme.lines);
+  renderMeme()
+}
+
+function switchLine() {
+    gMeme.selectedLine += 1
+    if (gMeme.selectedLine > gMeme.lines.length - 1) {
+        gMeme.selectedLine = 0
+    }
+    console.log(gMeme.selectedLine);
     renderMeme()
 }
