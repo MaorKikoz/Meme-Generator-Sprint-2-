@@ -30,7 +30,7 @@ function resizeCanvas() {
 function onSelectPic(picId) {
     const elImg = new Image()
     const pic = getPicById(picId)
-    // console.log(pic)
+    console.log(pic)
     elImg.src = pic.url
     elImg.onload = () => renderImg(elImg)
 }
@@ -41,7 +41,6 @@ function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     // render text later
     renderText()
-    //renderMeme()
 }
 
 function renderText() {

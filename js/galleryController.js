@@ -7,10 +7,9 @@ function renderGallery(gallery) {
 	var galleryHtml = ''
 	for (var i = 0; i < imgs.length; i++) {
 		//const txt = getTxt(txtLength)
-        var imgUrl = imgs[i].url
-                console.log(imgs[i])
+                //console.log(imgs[i])
 	            galleryHtml += `
-                <img src="${imgUrl} "onclick="onSelectPic(this)">`
+                <img src="${imgs[i].url} "onclick="onSelectPic(${imgs[i].id})">`
 	}
 
 	elGallery.innerHTML = galleryHtml
