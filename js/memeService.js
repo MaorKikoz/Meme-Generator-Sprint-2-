@@ -28,8 +28,14 @@ var gMeme = {
     lines: [
         {
             txt: 'Eating delicious hot schmoes!',
-            size: 20,
-            color: 'white'
+            size: 25,
+            color: 'white',
+            pos: { x: 200, y: 50 }
+        }, {
+            txt: 'Buzz, they\'re called smores.',
+            size: 25,
+            color: 'white',
+            pos: { x: 200, y: 350 }
         }
     ]
 }
@@ -42,9 +48,9 @@ function getMeme() {
 }
 
 function setLineTxt(elTxt) {
-  gMeme.lines[0].txt = elTxt.value
-  console.log(gMeme.selectedImgId);
-   renderMeme()
+    gMeme.lines[0].txt = elTxt.value
+    console.log(gMeme.selectedImgId);
+    renderMeme()
 }
 
 function getPicById(picId) {
@@ -52,16 +58,22 @@ function getPicById(picId) {
 }
 
 function onSetColor(color) {
-	gMeme.lines[0].color = color
-	renderMeme()
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        gMeme.lines[i].color = color
+    }
+    renderMeme()
 }
 
 function increaseTextSize() {
-    gMeme.lines[0].size += 4 
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        gMeme.lines[i].size += 2
+    }
     renderMeme()
 }
 
 function decreaseTextSize() {
-    gMeme.lines[0].size -= 4 
+    for (var i = 0; i < gMeme.lines.length; i++) {
+        gMeme.lines[i].size -= 2
+    }
     renderMeme()
 }

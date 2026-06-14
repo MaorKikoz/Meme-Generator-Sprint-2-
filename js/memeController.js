@@ -43,15 +43,17 @@ function renderImg(img) {
 }
 
 function renderText() {
-    const line = gMeme.lines[0]
+    for (var i = 0; i < gMeme.lines.length; i++) {
+    var line = gMeme.lines[i]
     gCtx.font = `${line.size}px Impact`
     gCtx.fillStyle = line.color
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 2
     gCtx.textAlign = 'center'
-    gCtx.strokeText(line.txt, gElCanvas.width / 2, line.size + 10)
-    gCtx.fillText(line.txt, gElCanvas.width / 2, line.size + 10)
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
     //gCtx.margin = 'auto'
+    }
 }
 
 
