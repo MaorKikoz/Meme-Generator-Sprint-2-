@@ -1,5 +1,21 @@
+header {
+    background-color: bisque;
+}
+
+.clean-list {
+    margin: 0 0 1em;
+    line-height: 1.5;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+    align-self: center;
+    background-color: gray;
+}
+
 .canvas-container {
-    max-width: 400px;
+    width: 400px;
     margin: 20px auto;
 }
 
@@ -8,13 +24,21 @@ canvas {
     width: 100%;
 }
 
+.canvastext {
+    display: flex;
+    max-width: 200px;
+}
+.editor button {
+    display: flex;
+}
+
 .img {
     max-width: 200px;
     margin: auto;
 }
 
-/* .hidden {
-    
-} */
+.hidden {
+    display: none;
+}
 
 

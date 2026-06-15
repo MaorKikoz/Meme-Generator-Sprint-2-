@@ -31,12 +31,14 @@ var gMeme = {
             txt: 'Eating delicious hot schmoes!',
             size: 25,
             color: 'white',
-            pos: { x: 200, y: 50 }
+            pos: { x: 200, y: 50 },
+            isHighlighted: true
         }, {
             txt: 'Buzz, they\'re called smores.',
             size: 25,
             color: 'white',
-            pos: { x: 200, y: 350 }
+            pos: { x: 200, y: 350 },
+            isHighlighted: false
         }
     ]
 }
@@ -80,15 +82,15 @@ function decreaseTextSize() {
 }
 
 function addLine() {
-    gMeme.lines.push( {
+    gMeme.lines.push({
         txt: 'New line',
-            size: 25,
-            color: 'white',
-            pos: { x: 200, y: 200 }
+        size: 25,
+        color: 'white',
+        pos: { x: 200, y: 200 }
     }
-  ) 
-  console.log(gMeme.lines);
-  renderMeme()
+    )
+    console.log(gMeme.lines);
+    renderMeme()
 }
 
 function switchLine() {
@@ -99,3 +101,6 @@ function switchLine() {
     console.log(gMeme.selectedLine);
     renderMeme()
 }
+
+
+

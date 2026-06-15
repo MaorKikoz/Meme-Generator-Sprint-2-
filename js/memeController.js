@@ -2,12 +2,13 @@
 
 var gElCanvas
 var gCtx
+var gIsMouseDown = false
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
-    //addListeners()
+    addListeners()
     renderMeme()
     renderGallery(gImgs)
 }
@@ -32,6 +33,7 @@ function onSelectPic(picId) {
     gMeme.selectedImgId = picId
     elImg.src = pic.url
     elImg.onload = () => renderImg(elImg)
+    openMain()
 }
 
 function renderImg(img) {
@@ -44,15 +46,15 @@ function renderImg(img) {
 
 function renderText() {
     for (var i = 0; i < gMeme.lines.length; i++) {
-    var line = gMeme.lines[i]
-    gCtx.font = `${line.size}px Impact`
-    gCtx.fillStyle = line.color
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.textAlign = 'center'
-    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
-    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
-    //gCtx.margin = 'auto'
+        var line = gMeme.lines[i]
+        gCtx.font = `${line.size}px Impact`
+        gCtx.fillStyle = line.color
+        gCtx.strokeStyle = 'black'
+        gCtx.lineWidth = 2
+        gCtx.textAlign = 'center'
+        gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
+        gCtx.fillText(line.txt, line.pos.x, line.pos.y)
+        //gCtx.margin = 'auto'
     }
 }
 
@@ -76,7 +78,77 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
+function onDown(ev) {
+    if (gMeme.lines[ev]) {
+        const pos = getEvPos(ev)
+        gCtx.drawImage(gMeme.lines[ev], pos.x - 25, pos.y - 25, 50, 50)
+    } else {
+        gIsMouseDown = true
+        gStartPos = getEvPos(ev)
+
+        onMove(ev)
+    }
+}
+
+function onMove(ev) {
+    if (!gIsMouseDown) return
+
+    const pos = getEvPos(ev)
+    draw(pos.x, pos.y)
+    gStartPos = pos
+    renderMeme()
+}
+
+function onUp() {
+    gIsMouseDown = false
+}
+
+function getEvPos(ev) {
+    const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVS.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
+}
+
+function toggleDisplay() {
+    const elMain = document.querySelector('.main-container')
+    const elGallery = document.querySelector('.gallery')
+    if (elGallery.classList.contains('hidden')) {
+        elGallery.classList.remove('hidden')
+        elMain.classList.add('hidden')
+    } else {
+        elMain.classList.remove('hidden')
+        elGallery.classList.add('hidden')
+    }
+}
+
+function openMain() {
+    const elMain = document.querySelector('.main-container')
+    const elGallery = document.querySelector('.gallery')
+    if (elGallery.classList.contains('hidden')) return
+    toggleDisplay()
+}
+
+function openGallery() {
+    const elMain = document.querySelector('.main-container')
+    const elGallery = document.querySelector('.gallery')
+    if (elMain.classList.contains('hidden')) return
+    toggleDisplay()
 }
