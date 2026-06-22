@@ -1,3 +1,8 @@
+
+body {
+    padding: 0;
+    margin: 0;
+}
 header {
     background-color: bisque;
 }
@@ -10,8 +15,9 @@ header {
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;   
-    align-self: center;
     background-color: gray;
+    width: 70vw;
+    justify-self: center;
 }
 
 .canvas-container {
@@ -24,10 +30,22 @@ canvas {
     width: 100%;
 }
 
-.canvastext {
+.text-container {
     display: flex;
-    max-width: 200px;
+    align-items: center;
 }
+
+.canvastext {
+    width: 80%;
+    height: 50px;
+    align-self: center;
+}
+
+.editor {
+    display:grid;
+    grid-template-rows: 1fr 2fr;
+}
+
 .editor button {
     display: flex;
 }
@@ -36,6 +54,7 @@ canvas {
     max-width: 200px;
     margin: auto;
 }
+
 
 .hidden {
     display: none;
